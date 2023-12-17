@@ -1,4 +1,4 @@
- body {
+body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
   }
@@ -57,6 +57,8 @@
     border-radius: 0 0 10px 10px;
   }
   
+  
+  
   /* TABS */
   
   h2.inactive {
@@ -106,7 +108,7 @@
     transform: scale(0.95);
   }
   
-  input[type=text],input[type=password] {
+  input[type=text],input[type=password],input[type=email],input[type=number] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -241,9 +243,13 @@
   .underlineHover:hover:after{
     width: 100%;
   }
-   
+  
+
+  
   *:focus {
       outline: none;
   } 
   
- 
+  #icon {
+    width:60%;
+  }
