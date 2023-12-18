@@ -1,23 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import{HttpClient} from "@angular/common/http"
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  
-  // constructor(private http: HttpClient) {
-    
-  // }
+  loginForm!:FormGroup
 
-  // obj:any;
+  constructor(private http: HttpClient) {
+  }
 
-  // ngOnInit():void {
-  //   this.obj = this.http.get("http://127.0.0.1:8000/client/all/").subscribe(data => this.obj = data)
-  //}
-  
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      'email': new FormControl('', [Validators.email]),
+      'password': new FormControl('', [Validators.required])
+    });
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const formData = this.loginForm.value;
+
+      this.http.post("http://127.0.0.1:8000/login", formData).subscribe(
+        (response) => {
+          console.log("Login successful", response);
+        },
+        (error) => {
+          console.error("Login failed", error);
+        }
+      );
+    } else {
+      this.loginForm.markAllAsTouched();
+    }
+  }
 }
