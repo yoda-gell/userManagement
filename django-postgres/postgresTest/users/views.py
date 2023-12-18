@@ -42,6 +42,7 @@ def client_find(request,pk):
     serializer = ClientSerializer(event)
     return Response(serializer.data)
 
+
 ######################################################################################################################
 
 @api_view(['GET'])
