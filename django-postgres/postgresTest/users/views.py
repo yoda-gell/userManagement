@@ -42,6 +42,16 @@ def client_find(request,pk):
     serializer = ClientSerializer(event)
     return Response(serializer.data)
 
+@api_view(['POST'])
+def login(request):
+    method = request.method
+    if method == 'POST':
+        email = request.data['email']
+        password = request.data['password']
+        if not Client.objects.filter(email=email, password=password).exists():
+            return Response("Incorrect Password!", status=status.HTTP_401_UNAUTHORIZED)
+        return Response("Login Successful!")
+
 
 ######################################################################################################################
 
