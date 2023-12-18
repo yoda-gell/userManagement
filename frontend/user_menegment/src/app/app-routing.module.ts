@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminBlanceComponent } from './admin-blance/admin-blance.component';
 import { AdminMissionComponent } from './admin-mission/admin-mission.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [{
   path: '',
@@ -31,6 +32,10 @@ const routes: Routes = [{
         path: 'mission',
         component: AdminMissionComponent
         },
+        {
+          path: 'user',
+          component: UserComponent
+          },
 
 ];
 

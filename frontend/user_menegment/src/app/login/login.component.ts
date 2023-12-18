@@ -20,8 +20,13 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.http.post("http://127.0.0.1:8000/login/", this.data).subscribe(
       (response) => {
-        console.log("Login successful",response ); 
-        this.router.navigate(['/admin']);
+          
+        if (Object.entries(response)[0][1]){
+          this.router.navigate(['/admin']);
+        }
+        else{
+          this.router.navigate(['/user']);
+        }
       },
       (error) => {
         console.error("Login failed", error);

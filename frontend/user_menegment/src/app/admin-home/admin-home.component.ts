@@ -17,4 +17,7 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit():void {
     this.obj = this.http.get("http://127.0.0.1:8000/client/all/").subscribe(data => this.obj = data)
   }
+  deleteUser(id:number){
+    this.http.delete("http://127.0.0.1:8000/delete/"+id+"/")
+  }
 }
