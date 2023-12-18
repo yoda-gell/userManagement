@@ -8,11 +8,11 @@ urlpatterns = [
     path('client/update/<int:pk>/', views.client_up, name='client-update'),
     path('client/find/<int:pk>/', views.client_find, name='client-detail'),  
      
-    path('admin/all/', views.admin_list, name='admin-list'),
-    path('admin/add/', views.admin_add, name='admin-add'),
-    path('admin/delete/<int:pk>/', views.admin_del, name='admin-delete'),
-    path('admin/update/<int:pk>/', views.admin_up, name='admin-update'),
-    path('admin/find/<int:pk>/', views.admin_find, name='admin-detail'), 
+    path('adminn/all/', views.admin_list, name='admin-list'),
+    path('adminn/add/', views.admin_add, name='admin-add'),
+    path('adminn/delete/<int:pk>/', views.admin_del, name='admin-delete'),
+    path('adminn/update/<int:pk>/', views.admin_up, name='admin-update'),
+    path('adminn/find/<int:pk>/', views.admin_find, name='admin-detail'), 
     
     path('login/',views.login, name="login") 
 ]

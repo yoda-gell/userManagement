@@ -1,4 +1,5 @@
 from .models import User ,Client,Admin
+from django.contrib.auth.hashers import check_password
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -50,7 +51,13 @@ def login(request):
         password = request.data['password']
         if not Client.objects.filter(email=email, password=password).exists():
             return Response("Incorrect Password!", status=status.HTTP_401_UNAUTHORIZED)
-        return Response("Login Successful!")
+        else:
+            for client in Client.objects.filter(email=email, password=password):
+                
+                    return Response({"user_id": client.id, "email": client.email})
+                    
+            return Response("Incorrect Password!", status=status.HTTP_401_UNAUTHORIZED)
+
 
 
 ######################################################################################################################
