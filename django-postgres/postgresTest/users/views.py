@@ -54,7 +54,7 @@ def login(request):
         else:
             for client in Client.objects.filter(email=email, password=password):
                 
-                    return Response({"user_id": client.id, "email": client.email})
+                    return Response({"super":client.is_super ,"user_id": client.id})
                     
             return Response("Incorrect Password!", status=status.HTTP_401_UNAUTHORIZED)
 
