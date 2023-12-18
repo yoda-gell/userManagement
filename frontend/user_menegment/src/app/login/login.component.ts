@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +9,23 @@ import { HttpClient } from "@angular/common/http";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {}
+
+  obj: any;
+  data: any = {};
+
+  ngOnInit(): void {
   }
 
-  obj:any;
-  data:any={}
-
-  ngOnInit():void {
-    // this.obj = this.http.get("http://127.0.0.1:8000/client/add/").subscribe(data => this.obj = data)
-  }
-
- 
-onSubmit()
-   {
-    this.obj = this.http.post("http://127.0.0.1:8000/login/",this.data).subscribe(data => this.obj = data)
-      alert(this.data);
+  onSubmit() {
+    this.http.post("http://127.0.0.1:8000/login/", this.data).subscribe(
+      (response) => {
+        console.log("Login successful",response ); 
+        this.router.navigate(['/admin']);
+      },
+      (error) => {
+        console.error("Login failed", error);
+      }
+    );
   }
 }
-
