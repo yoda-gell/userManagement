@@ -9,32 +9,21 @@ import { HttpClient } from "@angular/common/http";
 })
 export class LoginComponent implements OnInit {
 
-  loginForm!:FormGroup
-
   constructor(private http: HttpClient) {
   }
 
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      'email': new FormControl('', [Validators.email]),
-      'password': new FormControl('', [Validators.required])
-    });
+  obj:any;
+  data:any={}
+
+  ngOnInit():void {
+    // this.obj = this.http.get("http://127.0.0.1:8000/client/add/").subscribe(data => this.obj = data)
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const formData = this.loginForm.value;
-
-      this.http.post("http://127.0.0.1:8000/login", formData).subscribe(
-        (response) => {
-          console.log("Login successful", response);
-        },
-        (error) => {
-          console.error("Login failed", error);
-        }
-      );
-    } else {
-      this.loginForm.markAllAsTouched();
-    }
+ 
+onSubmit()
+   {
+    this.obj = this.http.post("http://127.0.0.1:8000/login/",this.data).subscribe(data => this.obj = data)
+      alert(this.data);
   }
 }
+

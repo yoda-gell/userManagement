@@ -8,11 +8,11 @@
     </div>
 
     <!-- Login Form -->
-    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <form (ngSubmit)="onSubmit()" >
       <div></div>
-      <input type="email" id="login" class="fadeIn second" name="login" placeholder="Email">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-      <input [disabled]="!loginForm.valid" type="submit" class="fadeIn fourth" value="Log In">
+      <input type="email" id="login" class="fadeIn second" name="login" placeholder="Email" [(ngModel)]="data.email">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" [(ngModel)]="data.password">
+      <input  type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <!-- Remind Password -->
