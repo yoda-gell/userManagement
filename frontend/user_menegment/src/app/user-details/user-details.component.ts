@@ -15,13 +15,13 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.id = +params.get('id')!; // Convert the id to a number
+      this.id = +params.get('id')!; 
       this.fetchUserData();
     });
   }
 
   fetchUserData() {
-    this.http.get(`http://127.0.0.1:8000/client/${this.id}`).subscribe(
+    this.http.get(`http://127.0.0.1:8000/client/find/${this.id}/`).subscribe(
       (data: any) => {
         this.obj = data;
       },
