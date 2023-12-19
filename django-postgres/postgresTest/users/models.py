@@ -24,9 +24,7 @@ class Client (User):
     moneyneed = models.IntegerField(default=0)
     is_super =models.BooleanField(default= False)
     #tik = models.ForeignKey(Tik, on_delete=models.CASCADE)
-
-class Admin (User):
-    is_super =models.BooleanField(default= True)
     #mission = models.ForeignKey(mission, on_delete=models.CASCADE)
-    pass
+
+
     
