@@ -32,7 +32,10 @@ export class AdminHomeComponent implements OnInit {
   }
 
   openUser(id:number){
-    this.router.navigate(['/user-details/:id']);
+    this.router.navigate([`/user-details/${id}`]);
+  }
+  EditUser(id:number){
+    
   }
   
 }
