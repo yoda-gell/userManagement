@@ -7,6 +7,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminBlanceComponent } from './admin-blance/admin-blance.component';
 import { AdminMissionComponent } from './admin-mission/admin-mission.component';
 import { UserComponent } from './user/user.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [{
   path: '',
@@ -36,6 +37,10 @@ const routes: Routes = [{
           path: 'user',
           component: UserComponent
           },
+          {
+            path: 'user-details/:id',
+            component: UserDetailsComponent
+            },
 
 ];
 
