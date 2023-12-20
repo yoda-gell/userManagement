@@ -17,7 +17,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminMissionComponent } from './admin-mission/admin-mission.component';
 import { AdminBlanceComponent } from './admin-blance/admin-blance.component';
 import { AdminNevComponent } from './admin-nev/admin-nev.component';
-import { UserDetailsComponent } from './user-details/user-details.component'
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UserDetailsComponent } from './user-details/user-details.component'
     AdminMissionComponent,
     AdminBlanceComponent,
     AdminNevComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,

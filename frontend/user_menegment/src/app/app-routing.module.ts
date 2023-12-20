@@ -8,6 +8,7 @@ import { AdminBlanceComponent } from './admin-blance/admin-blance.component';
 import { AdminMissionComponent } from './admin-mission/admin-mission.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 const routes: Routes = [{
   path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [{
       path: 'admin',
       component: AdminHomeComponent
       },
+      {
+        path: 'admin-users',
+        component: AdminUsersComponent
+        },
     {
     path: 'sign',
     component: SignUpComponent

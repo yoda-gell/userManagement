@@ -1,43 +1,57 @@
-<app-admin-nev></app-admin-nev>
-<div>
-    
-    <div class="input-group rounded">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
-          <i class="fas fa-search"></i>
-        </span>
-      </div>
 
-      <div>
-        <a href="sign" type="button" class="btn btn-primary">+</a>
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+       <app-admin-nev></app-admin-nev>
       </div>
+      <div class="col">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">first Name</th>
-                <th scope="col">last Name</th>
-                <th scope="col">age</th>
-                <th scope="col">address</th>
-                <th scope="col">Email</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <a href=""></a><tr *ngFor="let item of obj">
-                <th scope="row">{{ item.id }}</th>
-                <td>{{ item.first_name }}</td>
-                <td>{{ item.last_name }}</td>
-                <td>{{ item.age }}</td>
-                <td>{{ item.address }}</td>
-                <td>{{ item.email }}</td>
-                <td>
-                    <button type="button" (click)="deleteUser(item.id)" >Delete</button>
-                    <button type="button" (click)="openUser(item.id)" >open</button>
-                    <button type="button" (click)="EditUser(item.id)" >Edit</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <div class="m padding ">
+            <a href="admin-users">
+                <div class="card " style="height: 30.3rem; ">
+                  <div class="card-body ">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                        <h4>users</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </a>
+          </div>
+
+      </div>
+      <div class="col">
+
+        <div class=" mb-3 padding">
+            <a href="mission">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                        <h4>mission</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </a>
+          </div>
+                <div class="mb-3">
+                    <a href="balance">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                              <div class="mt-3">
+                                <h4>balance</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </a>
+                </div>
+      </div>
+    </div>
+  </div>

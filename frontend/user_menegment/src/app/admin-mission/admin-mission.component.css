@@ -1,0 +1,27 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.center {
+    border: 5px solid;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.padding{
+    padding: 2%;
+    
+}
+body{margin-top:20px;
+    background:#EDF1F9;
+    }
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+    .avatar {
+        width: 3rem;
+        height: 3rem;
+        font-size: .765625rem;
+    }
+    a {
+    text-decoration:none;    
+    }
