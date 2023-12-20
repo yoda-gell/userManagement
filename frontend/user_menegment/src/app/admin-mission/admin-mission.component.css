@@ -15,7 +15,7 @@ body{margin-top:20px;
     background:#EDF1F9;
     }
     .card {
-        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+        box-shadow: 0px 20px 27px 0 rgba(255, 0, 0, 0.613);
     }
     .avatar {
         width: 3rem;
@@ -24,4 +24,16 @@ body{margin-top:20px;
     }
     a {
     text-decoration:none;    
+    }
+    .shadow-red{
+        box-shadow: 0px 20px 27px 0 rgba(255, 0, 0, 0.441);
+    }
+    .shadow-ornge{
+        box-shadow: 0px 20px 27px 0 rgba(255, 106, 0, 0.477);
+    }
+    .shadow-yellow{
+        box-shadow: 0px 20px 27px 0 rgba(255, 174, 0, 0.445);
+    }
+    .container{
+        width: 70%;
     }

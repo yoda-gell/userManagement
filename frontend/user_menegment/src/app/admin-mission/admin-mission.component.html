@@ -2,24 +2,23 @@
     <app-admin-nev></app-admin-nev>
 </div>
 
-
-
-
-<div class="container">
+<div style="height: 50px; width: auto;"></div>
+<h1 class="text-center">All Task</h1>
+<div class="container"   >
     <div class="row">
         <div class="col-xl-12 mb-3 mb-lg-5">
-            <div class="card">
+            <div class="card shadow-red">
                 <div class="card-body">
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item pt-0">
+                    <div class="text-center">priority 1</div>
+                    <ul class="list-group list-group-flush"*ngFor="let thing of obj">
+                        <li class="list-group-item pt-0" *ngIf="thing.priority=='1'">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-0">Inara Britt</h6>
+                                    <h6 class="mb-0" (click)="goUser(thing.assign_to)"> {{thing.task}}</h6>
                                 </div>
                                 <div class="flex-shrink-0 text-end">
                                     <span>
-                                        <button class="btn btn-success">done</button>
+                                        <button class="btn btn-success" (click)="done(thing.id)">done</button>
                                     </span>
                                 </div>
                             </div>
@@ -35,18 +34,18 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-12 mb-3 mb-lg-5">
-            <div class="card">
+            <div class="card shadow-ornge">
                 <div class="card-body">
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item pt-0">
+                    <div class="text-center">priority 2</div>
+                    <ul class="list-group list-group-flush"*ngFor="let thing of obj">
+                        <li class="list-group-item pt-0" *ngIf="thing.priority=='2'">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-0">Inara Britt</h6>
+                                    <h6 class="mb-0">{{thing.task}}</h6>
                                 </div>
                                 <div class="flex-shrink-0 text-end">
                                     <span>
-                                        <button class="btn btn-success">done</button>
+                                        <button class="btn btn-success"(click)="done(thing.id)">done</button>
                                     </span>
                                 </div>
                             </div>
@@ -63,18 +62,18 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-12 mb-3 mb-lg-5">
-            <div class="card">
+            <div class="card shadow-yellow">
                 <div class="card-body">
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item pt-0">
+                    <div class="text-center">priority 3</div>
+                    <ul class="list-group list-group-flush"*ngFor="let thing of obj">
+                        <li class="list-group-item pt-0" *ngIf="thing.priority=='3'">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-0">Inara Britt</h6>
+                                    <h6 class="mb-0">{{thing.task}}</h6>
                                 </div>
                                 <div class="flex-shrink-0 text-end">
                                     <span>
-                                        <button class="btn btn-success">done</button>
+                                        <button class="btn btn-success" (click)="done(thing.id)">done</button>
                                     </span>
                                 </div>
                             </div>

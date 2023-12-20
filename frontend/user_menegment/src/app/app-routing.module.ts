@@ -9,6 +9,7 @@ import { AdminMissionComponent } from './admin-mission/admin-mission.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { UserFilesComponent } from './user-files/user-files.component';
 
 const routes: Routes = [{
   path: '',
@@ -42,6 +43,10 @@ const routes: Routes = [{
           path: 'user',
           component: UserComponent
           },
+          {
+            path: 'file',
+            component: UserFilesComponent
+            },
           {
             path: 'user-details/:id',
             component: UserDetailsComponent

@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,10 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminMissionComponent implements OnInit{
  
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private router: Router ){}
   obj:any
   fetch(){
-    this.http.get(`http://127.0.0.1:8000/client/find/${sessionStorage.getItem('id')}/`).subscribe(
+    this.http.get(`http://127.0.0.1:8000/mission/all/`).subscribe(
       (data: any) => {
         this.obj = data;
       },
@@ -22,6 +23,21 @@ export class AdminMissionComponent implements OnInit{
   }
   ngOnInit(): void {
       this.fetch()
+  }
+
+  goUser(id:number){
+    this.router.navigate([`/user-details/${id}`]);
+  }
+  done(id:number){
+    this.http.delete(`http://127.0.0.1:8000/mission/delete/${id}/`).subscribe(
+      (response) => {
+        console.log(`User with ID ${id} deleted successfully.`,response);
+        this.fetch()
+      },
+      (error) => {
+        console.error(`Error deleting user with ID ${id}:`, error);
+      }
+    );
   }
 
 }
