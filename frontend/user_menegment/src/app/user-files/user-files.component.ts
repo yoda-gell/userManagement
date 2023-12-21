@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import {FileLikeObject,FileUploader } from 'ng2-file-upload';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UploadService } from '../upload.service';
 
 @Component({
@@ -7,37 +7,42 @@ import { UploadService } from '../upload.service';
   templateUrl: './user-file.component.html',
   styleUrls: ['./user-files.component.css']
 })
-export class UserFilesComponent {
-  // // public uploader: FileUploader = new FileUploader({});
-  // public hasBaseDropZoneOver: boolean = false;
+export class UserFilesComponent implements OnInit {
 
-  // constructor(private uploadService: UploadService) {}
+  DJANGO_SERVER = 'http://127.0.0.1:8000'
+  form: FormGroup|any  ;
+  response:any;
+  imageURL:any;
 
-  // fileOverBase(event: any): void {
-  //   this.hasBaseDropZoneOver = event;
-  // }
+  constructor(private formBuilder: FormBuilder, private uploadService: UploadService) { }
 
-  // getFiles(): FileLikeObject[] {
-  //   return this.uploader.queue.map((fileItem) => {
-  //     return fileItem.file;
-  //   });
-  // }
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      profile: ['']
+    });
+  }
 
-  // upload() {
-  //   let files = this.getFiles();
-  //   console.log(files);
-  //   let requests: any[] = [];
-  //   files.forEach((file: any) => {
-  //     let formData = new FormData();
-  //     formData.append('file', file.rawFile, file.name);
-  //     // requests.push(this.uploadService.upload());
-  //   });
+  onChange(event:any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.get('profile').setValue(file);
+    }
+  }
 
-  //   // Assuming you want to log responses from all requests
-  //   Promise.all(requests).then((responses) => {
-  //     console.log(responses);
-  //   }).catch((error) => {
-  //     console.error(error);
-  //   });
-  // }
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.form.get('profile').value);
+
+    this.uploadService.upload(formData).subscribe(
+      (res) => {
+        this.response = res;
+        this.imageURL = `${this.DJANGO_SERVER}${res.file}`;
+        console.log(res);
+        console.log(this.imageURL);
+      },
+      (err) => {  
+        console.log(err);
+      }
+    );
+  }
 }
