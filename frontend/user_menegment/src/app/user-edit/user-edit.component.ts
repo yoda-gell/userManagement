@@ -13,10 +13,9 @@ export class UserEditComponent implements OnInit {
     
   }
   @Input() id ="" ;
+  @Input() status =false ;
   UpdateObj:any;
-  obj:any={
-    "id":this.id
-  };
+  obj:any
  
 
   ngOnInit():void {
@@ -36,6 +35,15 @@ export class UserEditComponent implements OnInit {
  
 onSubmit()
    {
-    this.UpdateObj = this.http.patch("http://127.0.0.1:8000/client/update/",this.obj).subscribe(data => this.UpdateObj = data)
+    this.UpdateObj = this.http.put(`http://127.0.0.1:8000/client/update/${this.id}/`,this.obj).subscribe(
+      (res) => {
+        alert("update");
+      },
+    )
   }
+
+clickEvent(){
+    this.status = !this.status;       
+}
+
 }

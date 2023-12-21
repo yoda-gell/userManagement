@@ -1,12 +1,11 @@
-<app-nev></app-nev>
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown" *ngIf="status==true">
     <div id="formContent">
 
       <div class="fadeIn first">
         <h3>update</h3>
       </div>
 
-      <form (ngSubmit)="onSubmit()" #heroForm="ngForm" >
+      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
         <input  type="text" id="first-name" class="fadeIn second" name="first_name" placeholder="first name" [(ngModel)]="obj.first_name"/>
         <input type="text" id="last-name" class="fadeIn second" name="last_name" placeholder="last name" [(ngModel)]="obj.last_name"/>
         <input type="email" id="email" class="fadeIn second" name="email" placeholder="email" [(ngModel)]="obj.email"/>
@@ -20,6 +19,9 @@
         <input type="text" id="reason" class="fadeIn second" name="reason" placeholder="reason" [(ngModel)]="obj.reason"/>
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="obj.password"/>
         <input type="submit" class="fadeIn fourth" value="update">
+        <input type="button" class="btn btn-danger fadeIn fourth" value="close" (click)="clickEvent()">
       </form>
     </div>
   </div>
+
+  <input type="button" class=" fadeIn fourth" value="edit" (click)="clickEvent()">
