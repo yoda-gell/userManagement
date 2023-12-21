@@ -1,0 +1,25 @@
+<app-nev></app-nev>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+      <div class="fadeIn first">
+        <h3>update</h3>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #heroForm="ngForm" >
+        <input  type="text" id="first-name" class="fadeIn second" name="first_name" placeholder="first name" [(ngModel)]="obj.first_name"/>
+        <input type="text" id="last-name" class="fadeIn second" name="last_name" placeholder="last name" [(ngModel)]="obj.last_name"/>
+        <input type="email" id="email" class="fadeIn second" name="email" placeholder="email" [(ngModel)]="obj.email"/>
+        <input type="number" id="money" class="fadeIn second" name="money" placeholder="money" [(ngModel)]="obj.money"/>
+        <input type="number" id="moneyneed" class="fadeIn second" name="moneyneed" placeholder="moneyneed" [(ngModel)]="obj.moneyneed"/>
+        <input type="text" id="is_super" class="fadeIn second" name="is_super" placeholder="is_super" [(ngModel)]="obj.is_super"/>
+
+        <input type="text" id="address" class="fadeIn second" name="address" placeholder="address" [(ngModel)]="obj.address"/>
+        <input type="text" id="gender" class="fadeIn second" name="gender" placeholder="gender F/M" [(ngModel)]="obj.gender"/>
+        <input type="number" id="age" class="fadeIn second" name="age" placeholder="age" [(ngModel)]="obj.age"/>
+        <input type="text" id="reason" class="fadeIn second" name="reason" placeholder="reason" [(ngModel)]="obj.reason"/>
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="obj.password"/>
+        <input type="submit" class="fadeIn fourth" value="update">
+      </form>
+    </div>
+  </div>

@@ -13,17 +13,6 @@ export class AdminHomeComponent implements OnInit {
   constructor(private http: HttpClient , private router: Router ) {
     
   }
-
-  
-
-
-
-
-
-
-
-
-
   
   obj:any;
 

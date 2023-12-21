@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import {FileLikeObject,FileUploader } from 'ng2-file-upload';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-user-files',
@@ -7,43 +8,36 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./user-files.component.css']
 })
 export class UserFilesComponent {
-  status: "initial" | "uploading" | "success" | "fail" = "initial"; // Variable to store file status
-  file: File | null = null; // Variable to store file
+  // // public uploader: FileUploader = new FileUploader({});
+  // public hasBaseDropZoneOver: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  // constructor(private uploadService: UploadService) {}
 
-  ngOnInit(): void {}
+  // fileOverBase(event: any): void {
+  //   this.hasBaseDropZoneOver = event;
+  // }
 
-  // On file Select
-  onChange(event: any) {
-    const file: File = event.target.files[0];
+  // getFiles(): FileLikeObject[] {
+  //   return this.uploader.queue.map((fileItem) => {
+  //     return fileItem.file;
+  //   });
+  // }
 
-    if (file) {
-      this.status = "initial";
-      this.file = file;
-    }
-  }
+  // upload() {
+  //   let files = this.getFiles();
+  //   console.log(files);
+  //   let requests: any[] = [];
+  //   files.forEach((file: any) => {
+  //     let formData = new FormData();
+  //     formData.append('file', file.rawFile, file.name);
+  //     // requests.push(this.uploadService.upload());
+  //   });
 
-  onUpload() {
-    if (this.file) {
-      const formData = new FormData();
-  
-      formData.append('file', this.file, this.file.name);
-  
-      const upload$ = this.http.post("https://httpbin.org/pst", formData);
-  
-      this.status = 'uploading';
-  
-      upload$.subscribe({
-        next: () => {
-          this.status = 'success';
-        },
-        error: (error: any) => {
-          this.status = 'fail';
-          return(error);
-        },
-      });
-    }
-  }
+  //   // Assuming you want to log responses from all requests
+  //   Promise.all(requests).then((responses) => {
+  //     console.log(responses);
+  //   }).catch((error) => {
+  //     console.error(error);
+  //   });
+  // }
 }
-  

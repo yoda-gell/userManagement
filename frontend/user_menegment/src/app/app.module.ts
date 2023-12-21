@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileUploadModule } from 'ng2-file-upload';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +21,8 @@ import { AdminMissionComponent } from './admin-mission/admin-mission.component';
 import { AdminBlanceComponent } from './admin-blance/admin-blance.component';
 import { AdminNevComponent } from './admin-nev/admin-nev.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component'
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { UserEditComponent } from './user-edit/user-edit.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { AdminUsersComponent } from './admin-users/admin-users.component'
     AdminBlanceComponent,
     AdminNevComponent,
     UserDetailsComponent,
-    AdminUsersComponent
+    AdminUsersComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ import { AdminUsersComponent } from './admin-users/admin-users.component'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FileUploadModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

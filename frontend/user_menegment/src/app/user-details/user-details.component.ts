@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,6 +11,7 @@ export class UserDetailsComponent implements OnInit {
   obj: any;
   id: number | undefined;
   mission :any
+  currentID =""
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -18,6 +19,7 @@ export class UserDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id = +params.get('id')!; 
       this.fetchUserData();
+      this.currentID =this.id.toString()
     });
   }
 

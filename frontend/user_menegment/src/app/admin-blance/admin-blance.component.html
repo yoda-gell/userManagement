@@ -1,0 +1,43 @@
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <app-admin-nev></app-admin-nev>  
+        </div>
+      <div class="col-sm">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">first Name</th>
+                    <th scope="col">last Name</th>
+                    <th scope="col">payed</th>
+                    <th scope="col">need to pay</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <a href=""></a><tr *ngFor="let item of objSort; index as i">
+                    <th scope="row">{{ i+1 }}</th>
+                    <td>{{ item.first_name }}</td>
+                    <td>{{ item.last_name }}</td>
+                    <td>{{ item.money }}</td>
+                    <td>{{ item.moneyneed }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+        <div class="chart-container">
+            <canvas  id="MyChart" >{{ chart }}</canvas>
+        </div>
+    </div>
+
+    
+    </div>
+  </div>
