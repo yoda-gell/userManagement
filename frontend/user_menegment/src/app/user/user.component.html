@@ -2,17 +2,40 @@
 <h3 class="text-center">welcome {{obj.first_name}} {{obj.last_name}}</h3>
 <div class="container">
     <div class="row">
-        <div class="col-sm">
-            asdhfdkhj
-        </div>
+        
       <div class="col-sm">
         
-            asdhfdkhj
+        <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <hr />
+                <div *ngFor="let item of obj | keyvalue">
+                  <div class="d-flex">
+                    <h6>{{ item.key }} : {{ item.value }}</h6>
+                    <hr />
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
     </div>
+
     <div class="col-sm">
-        <div class="chart-container">
-            <canvas  id="MyChart" >{{ chart }}</canvas>
+
+        <div class="card mb-3" style="height: 15rem;">
+            <button> check your file </button>
         </div>
+
+        <div class="card mb-3">
+            <div class="chart-container">
+                <canvas  id="MyChart" >{{ chart }}</canvas>
+            </div>
+            <div>
+                <span>pay: {{obj.money}} </span>
+                <span>   need to pay:{{obj.moneyneed}} </span>
+            </div>
+        </div>
+
     </div>
 
     

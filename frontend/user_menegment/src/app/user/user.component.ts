@@ -11,12 +11,19 @@ import Chart from 'chart.js/auto';
 })
 export class UserComponent implements OnInit{
   public chart: any;
-
+  pay=1
+  needtopay =1
  constructor(private http: HttpClient){}
 fetch(){
   this.http.get(`http://127.0.0.1:8000/client/find/${sessionStorage.getItem('id')}/`).subscribe(
     (data: any) => {
       this.obj = data;
+      console.log(this.obj.money);
+      
+      this.pay += this.obj.money
+      this.needtopay += this.obj.moneyneed
+      this.createChart()
+
     },
     (error: any) => {
       console.error('Error fetching user data:', error);
@@ -25,7 +32,6 @@ fetch(){
 }
  ngOnInit(): void {
 this.fetch()
-this.createChart()
 }
   obj:any
 
@@ -39,8 +45,8 @@ this.createChart()
       data: {
         labels: ['payed','need to pay', ],
 	       datasets: [{
-    data: [3,  3],
-    backgroundColor: [ 'red','blue',],
+    data: [this.pay, this.needtopay],
+    backgroundColor: ['blue', 'red',],
     hoverOffset: 4
   }],
       },

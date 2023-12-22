@@ -51,7 +51,7 @@ export class AdminBlanceComponent implements OnInit {
 	       datasets: [{
     label: 'My First Dataset',
     data: [this.allPay,  this.allNeedPay],
-    backgroundColor: [ 'red','blue',],
+    backgroundColor: [ 'blue','red',],
     hoverOffset: 4
   }],
       },
