@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class UploadService {
+export class FileUploadService {
+  private uploadUrl = 'http://127.0.0.1:8000/upload/'; // Replace with your server's upload endpoint
 
-  DJANGO_SERVER: string = "http://127.0.0.1:8000";
   constructor(private http: HttpClient) { }
 
-  public upload(formData:any) {
-    return this.http.post<any>(`${this.DJANGO_SERVER}/upload/`,formData);
+  uploadFile(file: File) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+
+    return this.http.post(this.uploadUrl, formData);
   }
 }
