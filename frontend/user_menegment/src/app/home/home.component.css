@@ -5,7 +5,7 @@ body {
 }
 
 .welcome-container {
-    padding: 20% 0;
+    padding: 2% 0;
     text-align: center;
 }
 
@@ -18,4 +18,8 @@ body {
 .sub-heading {
     font-size: 1.5em;
     color: #6c757d;
+}
+.img{
+background: url(/assets/user-management.png);
+width: 50%;
 }

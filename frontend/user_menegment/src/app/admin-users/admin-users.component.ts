@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,SimpleChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
@@ -8,19 +8,38 @@ import { AppRoutingModule } from '../app-routing.module';
   templateUrl: './admin-users.component.html',
   styleUrls: ['./admin-users.component.css']
 })
-export class AdminUsersComponent implements OnInit {
+export class AdminUsersComponent implements OnInit{
   constructor(private http: HttpClient , private router: Router ) {
     
   }
   
   obj:any;
+  tempObj: any;
+  search =""
+  
+  addItem(newItem: string) {
+    this.search =newItem;
+    console.log(this.search);
+    this.fetch()
+  }
 
   fetch(){
-    this.obj = this.http.get("http://127.0.0.1:8000/client/all/").subscribe(data => this.obj = data)
+    this.http.get("http://127.0.0.1:8000/client/all/").subscribe(data => {
+      this.obj = data
+      this.tempObj = this.obj.filter((o: any )=> {
+        console.log(o.first_name)
+        console.log(typeof o.first_name);
+        
+        return o.first_name.includes(this.search)
+
+      })
+    })
   }
 
   ngOnInit():void {
     this.fetch()
+    
+    
   }
   deleteUser(id: number) {
     
@@ -38,8 +57,9 @@ export class AdminUsersComponent implements OnInit {
   openUser(id:number){
     this.router.navigate([`/user-details/${id}`]);
   }
-  EditUser(id:number){
-    
+  
+  
+  ngOnChanges(change:any) {
   }
   
 }

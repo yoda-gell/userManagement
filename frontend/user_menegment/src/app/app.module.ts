@@ -23,7 +23,9 @@ import { AdminBlanceComponent } from './admin-blance/admin-blance.component';
 import { AdminNevComponent } from './admin-nev/admin-nev.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { UserEditComponent } from './user-edit/user-edit.component'
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { SerchComponent } from './serch/serch.component';
+import { AddMissionsComponent } from './add-missions/add-missions.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { UserEditComponent } from './user-edit/user-edit.component'
     AdminNevComponent,
     UserDetailsComponent,
     AdminUsersComponent,
-    UserEditComponent
+    UserEditComponent,
+    SerchComponent,
+    AddMissionsComponent
   ],
   imports: [
     BrowserModule,

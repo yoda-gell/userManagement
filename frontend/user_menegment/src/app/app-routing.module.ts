@@ -10,10 +10,13 @@ import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { UserFilesComponent } from './user-files/user-files.component';
+import { authGuard } from './auth.guard';
+import {adminGuard} from './admin.guard'
 
 const routes: Routes = [{
   path: '',
   component: HomeComponent
+ 
   },
   {
     path: 'login',
@@ -21,35 +24,43 @@ const routes: Routes = [{
     },
     {
       path: 'admin',
-      component: AdminHomeComponent
+      component: AdminHomeComponent,
+      canActivate:[authGuard,adminGuard]
       },
       {
         path: 'admin-users',
-        component: AdminUsersComponent
+        component: AdminUsersComponent,
+        canActivate:[authGuard,adminGuard]
         },
     {
     path: 'sign',
-    component: SignUpComponent
+    component: SignUpComponent,
+    canActivate:[authGuard]
     },
     {
       path: 'balance',
-      component: AdminBlanceComponent
+      component: AdminBlanceComponent,
+      canActivate:[authGuard,adminGuard]
       },
       {
         path: 'mission',
-        component: AdminMissionComponent
+        component: AdminMissionComponent,
+        canActivate:[authGuard,adminGuard]
         },
         {
           path: 'user',
-          component: UserComponent
+          component: UserComponent,
+          canActivate:[authGuard]
           },
           {
             path: 'file',
-            component: UserFilesComponent
+            component: UserFilesComponent,
+            canActivate:[authGuard]
             },
           {
             path: 'user-details/:id',
-            component: UserDetailsComponent
+            component: UserDetailsComponent,
+            canActivate:[authGuard,adminGuard]
             },
 
 ];

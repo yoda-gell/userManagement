@@ -16,4 +16,8 @@ export class NevComponent implements OnInit  {
   signup(): void {
     this.router.navigate(['/login']);
   }
+  logout(): void {
+    sessionStorage.clear()
+    this.router.navigate(['']);
+  }
 }
