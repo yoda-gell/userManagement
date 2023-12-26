@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <div class="text-center">priority 1</div>
                     <ul class="list-group list-group-flush"*ngFor="let thing of obj">
-                        <li class="list-group-item pt-0" *ngIf="thing.priority=='1'">
+                        <li class="list-group-item pt-0" *ngIf="thing.priority=='1'">   
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-0" (click)="goUser(thing.assign_to)"> {{thing.task}}</h6>
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </li>
-                    
+                      
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <li class="list-group-item pt-0" *ngIf="thing.priority=='2'">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-0">{{thing.task}}</h6>
+                                    <h6 class="mb-0" (click)="goUser(thing.assign_to)">{{thing.task}}</h6>
                                 </div>
                                 <div class="flex-shrink-0 text-end">
                                     <span>
@@ -69,7 +69,7 @@
                         <li class="list-group-item pt-0" *ngIf="thing.priority=='3'">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-0">{{thing.task}}</h6>
+                                    <h6 class="mb-0" (click)="goUser(thing.assign_to)">{{thing.task}}</h6>
                                 </div>
                                 <div class="flex-shrink-0 text-end">
                                     <span>
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                         </li>
-                       
+                        
                     </ul>
                 </div>
             </div>

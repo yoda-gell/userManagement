@@ -26,6 +26,7 @@ export class UserEditComponent implements OnInit {
     this.http.get(`http://127.0.0.1:8000/client/find/${this.id}/`).subscribe(
       (data: any) => {
         this.obj = data;
+        
       },
       (error: any) => {
         console.error('Error fetching user data:', error);

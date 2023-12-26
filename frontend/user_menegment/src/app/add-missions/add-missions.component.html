@@ -1,1 +1,17 @@
-<p>add-missions works!</p>
+<div class="wrapper fadeInDown" *ngIf="status==true">
+    <div id="formContent">
+
+      <div class="fadeIn first">
+        <h3>Add mission</h3>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <input  type="text" id="task" class="fadeIn second" name="task" placeholder="task" [(ngModel)]="obj.task"/>
+        <input type="number" id="priority" class="fadeIn second" name="priority" placeholder="priority" [(ngModel)]="obj.priority"/>
+        <input type="submit" class="fadeIn fourth" value="make">
+        <input type="button" class="btn btn-danger fadeIn fourth" value="close" (click)="clickEvent()">
+      </form>
+    </div>
+  </div>
+
+  <input type="button" class=" fadeIn fourth" value="+" (click)="clickEvent()">

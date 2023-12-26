@@ -37,3 +37,7 @@ body{margin-top:20px;
     .container{
         width: 70%;
     }
+    .mb-0{
+        border-bottom: solid;
+        color: gray;
+    }
