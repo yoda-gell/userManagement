@@ -18,8 +18,6 @@ fetch(){
   this.http.get(`http://127.0.0.1:8000/client/find/${sessionStorage.getItem('id')}/`).subscribe(
     (data: any) => {
       this.obj = data;
-      console.log(this.obj.money);
-      
       this.pay += this.obj.money
       this.needtopay += this.obj.moneyneed
       this.createChart()

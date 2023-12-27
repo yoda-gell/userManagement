@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';  // Import FormGroup here
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UploadService } from '../upload.service';
 
 @Component({
@@ -9,10 +9,10 @@ import { UploadService } from '../upload.service';
 })
 export class UserFilesComponent implements OnInit {
 
-  DJANGO_SERVER = 'http://127.0.0.1:8000';
-  form: FormGroup | undefined;  // Use FormGroup instead of FormGroup|any
-  response: any;
-  imageURL: any;
+  DJANGO_SERVER = 'http://127.0.0.1:8000'
+  form: FormGroup|any  ;
+  response:any;
+  imageURL:any;
 
   constructor(private formBuilder: FormBuilder, private uploadService: UploadService) { }
 
@@ -22,25 +22,26 @@ export class UserFilesComponent implements OnInit {
     });
   }
 
-  onChange(event: any) {
+  onChange(event:any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // this.form.get('profile').setValue(file);
+      this.form.get('profile').setValue(file);
+      console.log(this.form.get('profile'))
     }
   }
 
   onSubmit() {
     const formData = new FormData();
-    // formData.append('file',);
+    formData.append('file', this.form.get('profile').value);
 
     this.uploadService.upload(formData).subscribe(
-      (res: any) => {
+      (res) => {
         this.response = res;
         this.imageURL = `${this.DJANGO_SERVER}${res.file}`;
         console.log(res);
         console.log(this.imageURL);
       },
-      (err: any) => {  
+      (err) => {  
         console.log(err);
       }
     );

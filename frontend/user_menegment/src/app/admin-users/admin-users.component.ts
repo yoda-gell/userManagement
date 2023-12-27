@@ -27,9 +27,6 @@ export class AdminUsersComponent implements OnInit{
     this.http.get("http://127.0.0.1:8000/client/all/").subscribe(data => {
       this.obj = data
       this.tempObj = this.obj.filter((o: any )=> {
-        console.log(o.first_name)
-        console.log(typeof o.first_name);
-        
         return o.first_name.includes(this.search)
 
       })

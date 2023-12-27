@@ -1,5 +1,5 @@
 <app-nev></app-nev>
-<h3 class="text-center">welcome {{obj.first_name}} {{obj.last_name}}</h3>
+<h3 class="text-center">welcome {{obj?.first_name}} {{obj?.last_name}}</h3>
 <div class="container">
     <div class="row">
         
@@ -11,7 +11,7 @@
                 <hr />
                 <div *ngFor="let item of obj | keyvalue">
                   <div class="d-flex">
-                    <h6>{{ item.key }} : {{ item.value }}</h6>
+                    <h6>{{ item?.key }} : {{ item?.value }}</h6>
                     <hr />
                   </div>
                 </div>
@@ -31,8 +31,8 @@
                 <canvas  id="MyChart" >{{ chart }}</canvas>
             </div>
             <div>
-                <span>pay: {{obj.money}} </span>
-                <span>   need to pay:{{obj.moneyneed}} </span>
+                <span>pay: {{obj?.money}} </span>
+                <span>   need to pay:{{obj?.moneyneed}} </span>
             </div>
         </div>
 
