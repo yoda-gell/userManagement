@@ -1,1 +1,15 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container {
+    width: 90%;
+    position:relative; 
+    float: right;
+    padding: 3%;  
+}
+.chart-container {
+margin-top: 50%;
+border: 1px solid;
+}
+/* .tab{
+    padding-left: 20rem;
+} */

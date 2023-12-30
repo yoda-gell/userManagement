@@ -3,10 +3,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm">
             <app-admin-nev></app-admin-nev>  
-        </div>
-      <div class="col-sm">
+      <div class="col-sm tab">
         <table class="table table-success table-striped-columns ">
             <thead>
                 <tr>
@@ -36,8 +34,12 @@
         <div class="chart-container">
             <canvas  id="MyChart" >{{ chart }}</canvas>
         </div>
+        <div>
+            <p>user payed : {{allPay}}</p>
+            <p>user need to pay : {{allNeedPay}}</p>
+        </div>
     </div>
 
     
     </div>
-  </div>
+</div>
